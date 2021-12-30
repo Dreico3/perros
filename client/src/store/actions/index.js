@@ -28,3 +28,9 @@ export function agregarSinopsis(sinopsis){
         sinopsis
     }
 }
+export function agregarState(estado){
+    return{
+        type:'INITIAL',
+        state:estado
+    }
+}

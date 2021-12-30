@@ -1,15 +1,31 @@
-.navbackgroud{
-    background-color: rgb(50, 50, 168);
-    color: floralwhite;
-    height: 4rem;
+.navbackgroud {
+    background-color: #365d42;
+    color: #C2B49B;
+    height: 100px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
 }
-.active{
-    text-decoration: none; 
+.iz{
+    margin-left: 10px;
+}
+.de{
+    padding-right: 10px;
+}
+
+.active {
+    text-decoration: none;
     font-size: 25px;
-    color:crimson;
-    
+    -webkit-text-stroke: 0.3px black;
+    font-weight: bolder;
+    color: #ac4c4c;
+
 }
-.desactive{
-    color:darkgrey;
-    text-decoration: none; 
+
+.desactive {
+    font-size: 20px;
+    color: #6d302c;
+    text-decoration: none;
+    font-weight: bolder;
 }

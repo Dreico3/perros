@@ -17,12 +17,35 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-
+const server = require('./src/app');
+const { db } = require('./src/models/Dog');
+const {Temperamento}=require('./src/models/Dog')
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+db.sync({ alter: true }).then(() => {
+  server.listen(3001, async() => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
+    /* const tempe = await Temperamento.create({
+      nombre: 'facil de adiestrar'
+    })
+    const tempe1 = await Temperamento.create({
+      nombre: 'dificil de adiestrar'
+    })
+    const tempe2 = await Temperamento.create({
+      nombre: 'amigable'
+    })
+    const tempe3 = await Temperamento.create({
+      nombre: 'jugueton'
+    })
+    const tempe4 = await Temperamento.create({
+      nombre: 'dominante'
+    })
+    const tempe5 = await Temperamento.create({
+      nombre: 'tanquilo'
+    })
+
+    Promise.all([tempe,tempe1,tempe2,tempe3,tempe4,tempe5])
+      .then(res => {
+        console.log("temperamentos precargados");
+      }); */
   });
 });

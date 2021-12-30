@@ -1,6 +1,6 @@
-const initialState = {
-    breeds:[]
-}
+const initialState= {
+    state:[]
+};
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type){
@@ -9,6 +9,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 nombre:action.nombre,
                 raza:action.raza,
+            }
+        case 'INITIAL':
+            return{
+                ...state,
+                state:action.state,
             }
         default:
             return state;
