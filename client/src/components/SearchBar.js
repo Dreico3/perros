@@ -1,18 +1,42 @@
 import React from "react";
-
-export default function SearchBar() {
-    
+import { connect } from 'react-redux';
+import { agregarBusqueda } from '../store/actions'
+function SearchBar(props) {
+    const [busca, setBusca] = React.useState({
+        nombre: ''
+    });
+    const setState = (e) => {
+        setBusca({
+            ...busca,
+            [e.target.name]: e.target.value
+        })
+    }
+    const busqueda = ()=>{
+        //props.perros.find(p => p.name.toLowerCase() === busca.nombre.toLowerCase())
+        let buscados=props.perros.filter(p =>p.name.toLowerCase() === busca.nombre.toLowerCase())
+        return buscados;
+    }
     return (
         <div>
             <form onSubmit={
                 e => {
                     e.preventDefault();
-                    alert('me isiste clic??');
+                    props.agregarBusqueda(busqueda())
                 }
             }>
-                <input type='text' />
-                <input type='submit' value='buscar...' />
+                <input type='text' name='nombre'
+                    onChange={e => setState(e)}
+                />
             </form>
+            <input type='submit' value='buscar...' />
         </div>
     )
 }
+const mapStateToProps = (state) => {
+    return {
+        perros: state.state,
+        busqueda: state.search,
+        //BUSQUEDA
+    }
+}
+export default connect(mapStateToProps, { agregarBusqueda })(SearchBar);

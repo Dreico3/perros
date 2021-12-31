@@ -22,10 +22,10 @@ export function agregarpelicula({titulo,imagen,sinopsis}){
     }
 }
 
-export function agregarSinopsis(sinopsis){
+export function agregarBusqueda(sear){
     return {
-        type: 'ADD_SINOPSIS',
-        sinopsis
+        type: 'ADD_SEARCH',
+        search:sear
     }
 }
 export function agregarState(estado){

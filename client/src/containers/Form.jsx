@@ -28,9 +28,9 @@ export default function Form() {
                             height: inputs.height,
                             weight: inputs.weight,
                             bred_for: inputs.bred_for,
-                            life_span:parseInt(inputs.life_span),
+                            life_span: parseInt(inputs.life_span),
                             image: inputs.image,
-                            temperament:[2,4,5] //hardcode
+                            temperament: [2, 4, 5] //hardcode
                         }
                     })
                         .then(res => console.log(res))
@@ -77,6 +77,34 @@ export default function Form() {
                         onChange={e => setState(e)}
                     />
                 </label>
+                <div>
+                <h3>Temperamentos</h3>
+                    <label>
+                    facil de adiestrar
+                        <input type='checkbox' />
+                    </label>
+                    <label>
+                    dificil de adiestrar
+                        <input type='checkbox' />
+                    </label>
+                    <label>
+                    amigable
+                        <input type='checkbox' />
+                    </label>
+                    <label>
+                    jugueton
+                        <input type='checkbox' />
+                    </label>
+                    <label>
+                    dominante
+                        <input type='checkbox' />
+                    </label>
+                    <label>
+                    tanquilo
+                        <input type='checkbox' />
+                    </label>
+                    <br />
+                </div>
                 <br />
                 <input type="submit" value="Submit" />
             </form>

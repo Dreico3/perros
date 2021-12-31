@@ -1,19 +1,25 @@
-const initialState= {
-    state:[]
+const initialState = {
+    state: [],
+    search: null
 };
 
 const rootReducer = (state = initialState, action) => {
-    switch (action.type){
+    switch (action.type) {
         case 'ADD_DOG':
-            return{
+            return {
                 ...state,
-                nombre:action.nombre,
-                raza:action.raza,
+                nombre: action.nombre,
+                raza: action.raza,
             }
         case 'INITIAL':
-            return{
+            return {
                 ...state,
-                state:action.state,
+                state: action.state,
+            }
+        case 'ADD_SEARCH':
+            return {
+                ...state,
+                search: action.search,
             }
         default:
             return state;
