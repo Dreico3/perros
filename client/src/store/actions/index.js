@@ -1,24 +1,27 @@
 //todas estas acciones son temporales 
 //deben tomarse como ejemplo nada mas
-export function addLastName(apellido) {
-    return {
-        type: 'ADD_LASTNAME',
-        apellido
+
+export function ordenarZA(estado){
+    function SortArray(x, y){
+        return y.name.localeCompare(x.name);
     }
-}
-export function agregarTitulo(titulo){
+    var s = estado.sort(SortArray);
     return {
-        type: 'ADD_TITLE',
-        titulo
+        type: 'ORDER_ZA',
+        state:s,
+        order: true
     }
 }
 
-export function agregarpelicula({titulo,imagen,sinopsis}){
+export function ordenarAZ(estado){
+    function SortArray(x, y){
+        return x.name.localeCompare(y.name);
+    }
+    var s = estado.sort(SortArray);
     return {
-        type: 'ADD_MOVIE',
-        titulo:titulo,
-        imagen:imagen,
-        sinopsis:sinopsis
+        type: 'ORDER_AZ',
+        state:s,
+        order: false
     }
 }
 

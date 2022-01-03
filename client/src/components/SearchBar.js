@@ -11,9 +11,9 @@ function SearchBar(props) {
             [e.target.name]: e.target.value
         })
     }
-    const busqueda = ()=>{
+    const busqueda = () => {
         //props.perros.find(p => p.name.toLowerCase() === busca.nombre.toLowerCase())
-        let buscados=props.perros.filter(p =>p.name.toLowerCase() === busca.nombre.toLowerCase())
+        let buscados = props.perros.filter(p => p.name.toLowerCase() === busca.nombre.toLowerCase())
         return buscados;
     }
     return (
@@ -25,10 +25,11 @@ function SearchBar(props) {
                 }
             }>
                 <input type='text' name='nombre'
+                    className="datos"
                     onChange={e => setState(e)}
                 />
+                <input type='submit' value='buscar...' />
             </form>
-            <input type='submit' value='buscar...' />
         </div>
     )
 }

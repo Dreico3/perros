@@ -13,7 +13,7 @@ function Page(props) {
             }
         }
         setPerros(auxlist);
-    }, [,num])
+    }, [props.perros.state,num,props.perros.order])
     return (
         <div>
             {perros!==undefined ? perros.map(p => {

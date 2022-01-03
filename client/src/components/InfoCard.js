@@ -2,15 +2,22 @@ import React from "react";
 import { useParams } from "react-router";
 import { connect } from 'react-redux';
 function InfoCard(props) {
-  const [perro, setPerro] = React.useState({
-    name: '',
-    image: ''
-  });
+  const [perro, setPerro] = React.useState({});
   var { id } = useParams();
+
+  const temperament=(list)=>{
+    //Nota solo resivir los temperamentos
+    var lista=[];
+    for(let i=0;i<list.length;i++){
+      lista.push(list[i].nombre)
+    }
+    return lista.toString();
+  }
+
   React.useEffect(() => {
     const buscaPerro = (lista, id) => {
-      if(id.length < 4){
-        for (let i = 0; i < lista.length; i++) {
+      for (let i = 0; i < lista.length; i++) {
+        if(id.length < 4){
           if (lista[i].id === parseInt(id)) {
             setPerro({
               ...perro,
@@ -22,9 +29,7 @@ function InfoCard(props) {
             });
             return
           }
-        }
-      }else{
-        for (let i = 0; i < lista.length; i++) {
+        }else{
           if (lista[i].id === id) {
             setPerro({
               ...perro,
@@ -32,7 +37,7 @@ function InfoCard(props) {
               image: lista[i].image,
               bred_for: lista[i].bred_for,
               life_span: lista[i].life_span,
-              //temperament: lista[i].temperament
+              temperament: temperament(lista[i].temperamentos)
             });
             return
           }

@@ -1,0 +1,14 @@
+.botones{
+    display: inline;
+    margin: 0 30%;
+}
+.botones input{
+    height: 30px;
+    background-color:#C2B49B;
+    color:#ac4c4c;
+    font-size: 10px;
+    padding: 5px 10px;
+    border-style: none;
+    border: 1.5px #ac4c4c solid;
+    border-radius: 8px;
+}
