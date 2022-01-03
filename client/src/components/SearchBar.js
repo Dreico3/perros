@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { agregarBusqueda } from '../store/actions'
 function SearchBar(props) {
+    let histori = useNavigate();
     const [busca, setBusca] = React.useState({
         nombre: ''
     });
@@ -22,6 +24,8 @@ function SearchBar(props) {
                 e => {
                     e.preventDefault();
                     props.agregarBusqueda(busqueda())
+                    histori('/');
+                    //console.log(props);
                 }
             }>
                 <input type='text' name='nombre'

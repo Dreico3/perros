@@ -1,0 +1,14 @@
+.infoCard{
+    display:inline-block;
+    text-align: center;
+    width:500px;
+    margin: 100px 580px;
+    background-color:rgb(246, 253, 212);
+    max-height: auto;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding:10px 20px 20px;
+}
+.infoCard img{
+    width: 500px
+}

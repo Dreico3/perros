@@ -3,26 +3,27 @@
     color: #C2B49B;
     height: auto;
     width:100%;
+    position: fixed;
 }
 div div{
     display: inline-block;
 }
 .iz{
     float: left;
-    padding:  5px 15px;
+    padding:  5px 20px;
 }
 .de{
     float: right;
     padding:  18px 10px;
 }
 .mid{
-    width:60%;
+    width:75%;
     margin: 0 auto;
     text-align:center;
 }
 .order{
-    padding-top: 10px;
-    width:60%;
+    padding-top: 20px;
+    width:73%;
     margin: 0 auto;
     text-align:center;
     

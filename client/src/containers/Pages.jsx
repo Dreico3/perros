@@ -9,10 +9,10 @@ function Pages(props) {
     const [numero, setNumero] = React.useState(1);
 
     const Caja = () => {
-        var contador = 4;
+        var contador = 8;
         return (() => {
             contador++;
-            if (contador >= 4) {
+            if (contador >= 8) {
                 contador = 0;
                 return true;
             }
@@ -23,8 +23,8 @@ function Pages(props) {
     let a = Caja();
 
     return (
-        <div className='botones'>
-            <div >
+        <div>
+            <div className='botones'>
                 {props.perros.state.map(p => {
                     // cont++;
                     if (a()) {

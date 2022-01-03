@@ -1,12 +1,26 @@
-.botones{
-    display: inline;
-    margin: 0 30%;
+.botones {
+    display: inline-block;
+    width: 90%;
+    margin: 100px 42% 0px;
+    height: 10px;
+
 }
-.botones input{
-    height: 30px;
-    background-color:#C2B49B;
-    color:#ac4c4c;
+
+.botones input {
+    height: 25px;
+    background-color: #C2B49B;
+    color: #ac4c4c;
     font-size: 10px;
+    padding: 5px 10px;
+    border-style: none;
+    border: 1.5px #ac4c4c solid;
+    border-radius: 8px;
+}
+.botones input:hover {
+    height: 25px;
+    background-color: #C2B49B;
+    color: #4cac7f;
+    font-size: 12px;
     padding: 5px 10px;
     border-style: none;
     border: 1.5px #ac4c4c solid;

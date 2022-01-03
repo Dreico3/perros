@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './css/Form.css';
 export default function Form() {
     const [inputs, setInputs] = React.useState({
         name: '',
@@ -59,7 +60,8 @@ export default function Form() {
 
     /*  */
     return (
-        <div>
+        <div className='formulario'>
+            <h1>Registro</h1>
             <form
                 onSubmit={e => {
                     e.preventDefault();
@@ -152,50 +154,51 @@ export default function Form() {
                         value={inputs.image}
                     />
                 </label>
-                <div>
+                <br />
+                <div className='tempe'>
                     <h3>Temperamentos</h3>
                     <label>
-                        facil de adiestrar
+                    facil de adiestrar
                         <input type='checkbox' name='uno'
                             checked={inputs.check.uno}
                             onChange={e => setState(e)}
 
-                        />
+                        />|
                     </label>
                     <label>
                         dificil de adiestrar
                         <input type='checkbox' name='dos'
                             checked={inputs.check.dos}
                             onChange={e => setState(e)}
-                        />
+                        />|
                     </label>
                     <label>
                         amigable
                         <input type='checkbox' name='tres'
                             checked={inputs.check.tres}
                             onChange={e => setState(e)}
-                        />
+                        />|
                     </label>
                     <label>
                         jugueton
                         <input type='checkbox' name='cuatro'
                             checked={inputs.check.cuatro}
                             onChange={e => setState(e)}
-                        />
+                        />|
                     </label>
                     <label>
                         dominante
                         <input type='checkbox' name='cinco'
                             checked={inputs.check.cinco}
                             onChange={e => setState(e)}
-                        />
+                        />|
                     </label>
                     <label>
                         tanquilo
                         <input type='checkbox' name='seis'
                             checked={inputs.check.seis}
                             onChange={e => setState(e)}
-                        />
+                        />|
                     </label>
                     <br />
                 </div>

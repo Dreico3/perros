@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from './Card'
+import './css/Page.css'
 function Page(props) {
     var num = props.num;
     const [perros, setPerros] = React.useState([]);
     React.useEffect(() => {
-        let fin = num * 4;
+        let fin = num * 8;
         let auxlist = [];
-        for (let i = fin - 4; i < fin; i++) {
+        for (let i = fin - 8; i < fin; i++) {
             if(props.perros.state[i]){
                 auxlist.push(props.perros.state[i])
             }
@@ -15,7 +16,7 @@ function Page(props) {
         setPerros(auxlist);
     }, [props.perros.state,num,props.perros.order])
     return (
-        <div>
+        <div className='cajon'>
             {perros!==undefined ? perros.map(p => {
                 if (p.id.length > 4) {
                     return (

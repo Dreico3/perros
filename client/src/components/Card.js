@@ -12,8 +12,8 @@ export default function Card(props) {
                 <img
                     src={props.img}
                     alt="Alex? are you..??"
-                    height='400px'
-                    width='340px'
+                    height='330px'
+                    width='320px'
                 />
             </Link>
         </div>

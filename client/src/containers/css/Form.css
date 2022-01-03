@@ -1,0 +1,20 @@
+.formulario{
+    background-color:rgb(227, 245, 226);
+    border: 1px black solid;
+    border-radius: 10px;
+    text-align:center;
+    position:relative;
+    padding-top:100px;
+    height:500px;
+    width:100%;
+    margin:150px 180px;
+}
+
+.tempe label{
+    background-color:rgb(218, 210, 226);
+    display:inline-block;
+    border:1px black solid;
+    border-radius: 10px;
+    margin:0px 10px;
+    padding: 20px;
+}

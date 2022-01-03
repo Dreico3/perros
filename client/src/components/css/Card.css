@@ -1,16 +1,22 @@
 .targeta{
     transition: box-shadow 0.4s ease;
-    background-color:rgb(205, 211, 211);
+    background-color:rgb(226, 223, 223);
     display:inline-block;
-    width:340px;    
+    width:320px;   
+    height: auto; 
     margin:15px;
-    border-radius: 5px;
+    border:1px rgb(54, 50, 50) solid;
+    border-radius: 10px;
 }
 .targeta:hover{
-    box-shadow:0 0.2rem 0.4rem rgba(223, 39, 39, 0.3);
+    box-shadow:0 0.4rem 0.4rem rgba(15, 15, 15, 0.5);
 }
 .disabled-link{
     text-decoration: none;
     text-align: center;
     color:rgb(201, 59, 43)
+}
+.targeta h1{
+    padding:15px;
+    font-size:20px;
 }
