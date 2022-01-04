@@ -5,18 +5,72 @@ import { agregarBusqueda } from '../store/actions'
 function SearchBar(props) {
     let histori = useNavigate();
     const [busca, setBusca] = React.useState({
-        nombre: ''
+        nombre: '',
+        check: {
+            nom: true,
+            tem: false
+        }
     });
+
     const setState = (e) => {
-        setBusca({
-            ...busca,
-            [e.target.name]: e.target.value
-        })
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+
+        if (e.target.type !== 'checkbox') {
+            setBusca({
+                ...busca,
+                [e.target.name]: value
+            })
+        } else {
+            if(busca.check.nom){
+                setBusca({
+                    ...busca,
+                    check: {
+                        ...busca.check,
+                        nom: false,
+                        tem: true
+                    }
+                })
+                
+            }else{
+                setBusca({
+                    ...busca,
+                    check: {
+                        ...busca.check,
+                        nom: true,
+                        tem: false
+                    }
+                })
+                
+            }
+        }
     }
     const busqueda = () => {
         //props.perros.find(p => p.name.toLowerCase() === busca.nombre.toLowerCase())
-        let buscados = props.perros.filter(p => p.name.toLowerCase() === busca.nombre.toLowerCase())
-        return buscados;
+        if (busca.check.nom) {
+
+            let buscados = props.perros.filter(p => p.name.toLowerCase() === busca.nombre.toLowerCase())
+            return buscados;
+        } else {
+            let buscados = [];
+            for (let i = 0; i < props.perros.length; i++) {
+                if (props.perros[i].temperamentos) {
+                    for (let j = 0; j < props.perros[i].temperamentos.length; j++) {
+                        if (props.perros[i].temperamentos[j].nombre.toLowerCase() === busca.nombre.toLowerCase()) {
+                            buscados.push(props.perros[i])
+                        }
+                    }
+                }else if(props.perros[i].temperament){
+                    let auxTemp=props.perros[i].temperament.replace(/ /g,'');
+                    auxTemp=auxTemp.split(',');
+                    for(let j=0;j<auxTemp.length;j++){
+                        if(auxTemp[j].toLowerCase()===busca.nombre.toLowerCase()){
+                            buscados.push(props.perros[i])
+                        }
+                    }
+                }
+            }
+            return buscados;
+        }
     }
     return (
         <div>
@@ -24,8 +78,8 @@ function SearchBar(props) {
                 e => {
                     e.preventDefault();
                     props.agregarBusqueda(busqueda())
+                    
                     histori('/');
-                    //console.log(props);
                 }
             }>
                 <input type='text' name='nombre'
@@ -33,6 +87,22 @@ function SearchBar(props) {
                     onChange={e => setState(e)}
                 />
                 <input type='submit' value='buscar...' />
+                <br />
+                <label>
+                    nombre
+                    <input type='checkbox' name='nom'
+                        checked={busca.check.nom}
+                        onChange={e => setState(e)}
+                    />||
+                </label>
+                <label>
+                    temperamento
+                    <input type='checkbox' name='tem'
+                        checked={busca.check.tem}
+                        onChange={e => setState(e)}
+                    />
+                </label>
+
             </form>
         </div>
     )
