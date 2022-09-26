@@ -1,14 +1,14 @@
 import React from "react";
 import axios from "axios";
-import './css/Form.css';
+import "./css/Form.css";
 export default function Form() {
     const [inputs, setInputs] = React.useState({
-        name: '',
-        height: '',
-        weight: '',
-        bred_for: '',
-        life_span: '',
-        image: '',
+        name: "",
+        height: "",
+        weight: "",
+        bred_for: "",
+        life_span: "",
+        image: "",
         check: {
             uno: false,
             dos: false,
@@ -16,31 +16,32 @@ export default function Form() {
             cuatro: false,
             cinco: false,
             seis: false,
-        }
-    })
+        },
+    });
     const setState = (e) => {
-        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+        const value =
+            e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
-        if (e.target.type !== 'checkbox') {
+        if (e.target.type !== "checkbox") {
             setInputs({
                 ...inputs,
-                [e.target.name]: value
-            })
+                [e.target.name]: value,
+            });
         } else {
             setInputs({
                 ...inputs,
                 check: {
                     ...inputs.check,
-                    [e.target.name]: value
-                }
-            })
+                    [e.target.name]: value,
+                },
+            });
         }
-    }
+    };
     const temperament = (temperamentos) => {
         let aux = [];
         let cont = 1;
         for (const i in temperamentos) {
-            console.log(temperamentos[i])
+            console.log(temperamentos[i]);
             if (temperamentos[i]) {
                 aux.push(cont);
             }
@@ -48,7 +49,7 @@ export default function Form() {
         }
 
         return aux;
-    }
+    };
     /* React.useEffect(() => {
 
         console.log('hola')
@@ -60,15 +61,16 @@ export default function Form() {
 
     /*  */
     return (
-        <div className='formulario'>
+        <div className="formulario">
             <h1>Registro</h1>
             <form
-                onSubmit={e => {
+                className="formulario-form"
+                onSubmit={(e) => {
                     e.preventDefault();
-                    console.log(inputs)
+                    console.log(inputs);
                     axios({
-                        method: 'POST',
-                        url: 'http://localhost:3001/registro',
+                        method: "POST",
+                        url: "http://localhost:3001/registro",
                         data: {
                             name: inputs.name,
                             height: inputs.height,
@@ -76,20 +78,20 @@ export default function Form() {
                             bred_for: inputs.bred_for,
                             life_span: parseInt(inputs.life_span),
                             image: inputs.image,
-                            temperament: temperament(inputs.check) //hardcode
-                        }
+                            temperament: temperament(inputs.check), //hardcode
+                        },
                     })
-                        .then(res => console.log(res))
-                        .catch(e => console.log(e))
+                        .then((res) => console.log(res))
+                        .catch((e) => console.log(e));
 
                     setInputs({
                         ...inputs,
-                        name: '',
-                        height: '',
-                        weight: '',
-                        bred_for: '',
-                        life_span: '',
-                        image: '',
+                        name: "",
+                        height: "",
+                        weight: "",
+                        bred_for: "",
+                        life_span: "",
+                        image: "",
                         check: {
                             uno: false,
                             dos: false,
@@ -97,114 +99,148 @@ export default function Form() {
                             cuatro: false,
                             cinco: false,
                             seis: false,
-                        }
-                    })
-                    console.log(inputs)
-                }}>
-                <label>
+                        },
+                    });
+                    console.log(inputs);
+                }}
+            >
+                <label  className="formulario-label">
                     Nombre:
-                    <input type="text" name="name"
-                        onChange={e => setState(e)}
+                    <input
+                        type="text"
+                        name="name"
+                        onChange={(e) => setState(e)}
                         placeholder="Articus"
                         value={inputs.name}
                     />
                 </label>
                 <br />
-                <label>
+                <label className="formulario-label">
                     altura:
-                    <input type="text" name="height"
-                        onChange={e => setState(e)}
+                    <input
+                        type="text"
+                        name="height"
+                        onChange={(e) => setState(e)}
                         placeholder="42 - 45 cm"
                         value={inputs.height}
                     />
                 </label>
                 <br />
-                <label>
+                <label className="formulario-label">
                     peso:
-                    <input type="text" name="weight"
-                        onChange={e => setState(e)}
+                    <input
+                        type="text"
+                        name="weight"
+                        onChange={(e) => setState(e)}
                         placeholder="25 - 27 kg"
                         value={inputs.weight}
                     />
                 </label>
                 <br />
-                <label>
+                <label className="formulario-label">
                     criado para:
-                    <input type="text" name="bred_for"
-                        onChange={e => setState(e)}
+                    <input
+                        type="text"
+                        name="bred_for"
+                        onChange={(e) => setState(e)}
                         placeholder="correr feliz"
                         value={inputs.bred_for}
                     />
                 </label>
                 <br />
-                <label>
+                <label className="formulario-label">
                     esperanza de vida:
-                    <input type="text" name="life_span"
-                        onChange={e => setState(e)}
+                    <input
+                        type="text"
+                        name="life_span"
+                        onChange={(e) => setState(e)}
                         placeholder="13"
                         value={inputs.life_span}
                     />
                 </label>
                 <br />
-                <label>
+                <label className="formulario-label">
                     url de la foto:
-                    <input type="text" name="image"
-                        onChange={e => setState(e)}
+                    <input
+                        type="text"
+                        name="image"
+                        onChange={(e) => setState(e)}
                         placeholder="https://images.net/72548519.jpg"
                         value={inputs.image}
                     />
                 </label>
                 <br />
-                <div className='tempe'>
+                <div className="formulario-tempe">
                     <h3>Temperamentos</h3>
                     <label>
-                    facil de adiestrar
-                        <input type='checkbox' name='uno'
+                        facil de adiestrar
+                        <input
+                            type="checkbox"
+                            name="uno"
                             checked={inputs.check.uno}
-                            onChange={e => setState(e)}
-
-                        />|
+                            onChange={(e) => setState(e)}
+                        />
+                        |
                     </label>
                     <label>
                         dificil de adiestrar
-                        <input type='checkbox' name='dos'
+                        <input
+                            type="checkbox"
+                            name="dos"
                             checked={inputs.check.dos}
-                            onChange={e => setState(e)}
-                        />|
+                            onChange={(e) => setState(e)}
+                        />
+                        |
                     </label>
                     <label>
                         amigable
-                        <input type='checkbox' name='tres'
+                        <input
+                            type="checkbox"
+                            name="tres"
                             checked={inputs.check.tres}
-                            onChange={e => setState(e)}
-                        />|
+                            onChange={(e) => setState(e)}
+                        />
+                        |
                     </label>
                     <label>
                         jugueton
-                        <input type='checkbox' name='cuatro'
+                        <input
+                            type="checkbox"
+                            name="cuatro"
                             checked={inputs.check.cuatro}
-                            onChange={e => setState(e)}
-                        />|
+                            onChange={(e) => setState(e)}
+                        />
+                        |
                     </label>
                     <label>
                         dominante
-                        <input type='checkbox' name='cinco'
+                        <input
+                            type="checkbox"
+                            name="cinco"
                             checked={inputs.check.cinco}
-                            onChange={e => setState(e)}
-                        />|
+                            onChange={(e) => setState(e)}
+                        />
+                        |
                     </label>
                     <label>
                         tanquilo
-                        <input type='checkbox' name='seis'
+                        <input
+                            type="checkbox"
+                            name="seis"
                             checked={inputs.check.seis}
-                            onChange={e => setState(e)}
-                        />|
+                            onChange={(e) => setState(e)}
+                        />
+                        |
                     </label>
                     <br />
                 </div>
                 <br />
-                <input type="submit" value="Submit" />
+                <input
+                    className="formulario-boton"
+                    type="submit"
+                    value="Enviar"
+                />
             </form>
         </div>
-    )
+    );
 }

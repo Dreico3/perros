@@ -1,20 +1,40 @@
 .formulario{
-    background-color:rgb(227, 245, 226);
-    border: 1px black solid;
-    border-radius: 10px;
-    text-align:center;
-    position:relative;
-    padding-top:100px;
-    height:500px;
-    width:100%;
-    margin:150px 180px;
+    position: relative;
+    top:7em;
+    text-align: center;
 }
-
-.tempe label{
-    background-color:rgb(218, 210, 226);
-    display:inline-block;
-    border:1px black solid;
+.formulario-boton{
+    color:black;
+    cursor:pointer;
+    font-weight: bold;
+    padding: 0.4em 3em;
+    border:none;
     border-radius: 10px;
-    margin:0px 10px;
-    padding: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.formulario-label{
+    display:inline-block;
+    margin: 8px;
+    font-weight: bold;
+}
+.formulario-label input{
+    color:black;
+    margin-left:1em;
+    padding:0.4em 1em;
+    border:none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.formulario-label input:focus{
+    outline: none;
+    padding-left: 5px;
+}
+.formulario-tempe label{
+    margin: 10px;
 }

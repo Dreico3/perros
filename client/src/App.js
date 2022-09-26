@@ -18,12 +18,12 @@ function App(props) {
       props.agregarState(dogss);
     }
     traerPerros();
-  }, [])
+  }, [props])
   return (
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/cards" element={<Cards />} />
         <Route path="/infocard/:id" element={<InfoCard />} />
         <Route path="/registro" element={<Form/>}/>

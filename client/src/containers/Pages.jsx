@@ -23,8 +23,8 @@ function Pages(props) {
     let a = Caja();
 
     return (
-        <div>
-            <div className='botones'>
+        <div className="pages">
+            <div className='pages-botones'>
                 {props.perros.state.map(p => {
                     // cont++;
                     if (a()) {

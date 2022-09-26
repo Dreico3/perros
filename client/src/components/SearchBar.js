@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { agregarBusqueda } from '../store/actions'
+import "./css/SearchBar.css"
 function SearchBar(props) {
     let histori = useNavigate();
     const [busca, setBusca] = React.useState({
@@ -79,14 +80,15 @@ function SearchBar(props) {
                     e.preventDefault();
                     props.agregarBusqueda(busqueda())
                     
-                    histori('/');
+                    histori('/home');
                 }
             }>
                 <input type='text' name='nombre'
-                    className="datos"
+                    className="form-busqueda"
+                    autoComplete="off"
                     onChange={e => setState(e)}
                 />
-                <input type='submit' value='buscar...' />
+                <input className="form-boton" type='submit' value='buscar...' />
                 <br />
                 <label>
                     nombre

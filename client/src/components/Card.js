@@ -4,7 +4,7 @@ import './css/Card.css'
 export default function Card(props) {
 
     return (
-        <div className = 'targeta'>
+        <div className = 'card'>
             <Link to={`/infocard/${props.id}`}
                 className='disabled-link'
             >
@@ -12,8 +12,7 @@ export default function Card(props) {
                 <img
                     src={props.img}
                     alt="Alex? are you..??"
-                    height='330px'
-                    width='320px'
+                   className="card-img"
                 />
             </Link>
         </div>

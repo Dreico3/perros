@@ -1,44 +1,73 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import SearchBar from '../components/SearchBar';
-import logo from '../img/LogoCrazyDog.png'
-import { connect } from 'react-redux';
-import { ordenarAZ, ordenarZA, agregarBusqueda } from '../store/actions'
-import './css/Nav.css';
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import SearchBar from "../components/SearchBar";
+import logo from "../img/LogoCrazyDog.png";
+import { connect } from "react-redux";
+import { ordenarAZ, ordenarZA, agregarBusqueda } from "../store/actions";
+import "./css/Nav.css";
 function Nav(props) {
     return (
-        <div className='navbackgroud'>
-            <Link className='iz' to='/'>
-                <div>
+        <div className="nav">
+            <div className="nav-contendImg">
+                <Link to="/">
                     <img
+                        className="nav-logo"
                         src={logo}
                         alt="Alex? are you..??"
-                        height='60px'
                     />
-                </div>
-
-            </Link>
-            <div className='mid'>
-                <NavLink className={(data) => data.isActive ? 'active' : 'desactive'} to='/'>Home </NavLink>
-                <NavLink className={(data) => data.isActive ? 'active' : 'desactive'} to='/cards'> Cartas </NavLink>
-                <NavLink className={(data) => data.isActive ? 'active' : 'desactive'} to='/registro'> Registro</NavLink>
+                </Link>
             </div>
-            <div className='de'>
+            <div className="nav-links">
+                <NavLink
+                    to="/home"
+                    className={(active)=>active.isActive?"active":"desactive"}
+                >
+                    Home
+                </NavLink>
+                <NavLink
+                    to="/cards"
+                    className={(active)=>active.isActive?"active":"desactive"}
+                >
+                    Cartas
+                </NavLink>
+                <NavLink
+                    to="/registro"
+                    className={(active)=>active.isActive?"active":"desactive"}
+                >
+                    Registro
+                </NavLink>
+            </div>
+            <div className="nav-searchBar">
                 <SearchBar />
             </div>
-            <br />
-            <div className='order'>
-                <button className='boton'
-                    onClick={() => { props.ordenarAZ(props.perros) }}>A-Z</button>
-                <button className='boton'
-                    onClick={() => { props.ordenarZA(props.perros) }}>Z-A</button>
+            <div className="nav-orderButtons">
+                <button
+                    className="nav-boton"
+                    onClick={() => {
+                        props.ordenarAZ(props.perros);
+                    }}
+                >
+                    A-Z
+                </button>
+                <button
+                    className="nav-boton"
+                    onClick={() => {
+                        props.ordenarZA(props.perros);
+                    }}
+                >
+                    Z-A
+                </button>
             </div>
         </div>
-    )
+    );
 }
 const mapStateToProps = (state) => {
     return {
-        perros: state.state
-    }
-}
-export default connect(mapStateToProps, { ordenarAZ, ordenarZA, agregarBusqueda })(Nav);
+        perros: state.state,
+    };
+};
+export default connect(mapStateToProps, {
+    ordenarAZ,
+    ordenarZA,
+    agregarBusqueda,
+})(Nav);

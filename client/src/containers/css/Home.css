@@ -1,8 +1,5 @@
 .home{
+    position:relative;
+    top:7em;
     text-align:center;
-    display: inline-block;
-    width:107rem;
-    height:100%;
-    margin-top: 40px;
-    padding: 50px 20px;
 }

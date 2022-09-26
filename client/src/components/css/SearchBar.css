@@ -1,0 +1,26 @@
+.form-busqueda{
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid white;
+}
+.form-busqueda:focus{
+    outline: none;
+    padding-left: 5px;
+}
+.form-boton{
+    cursor: pointer;
+    border:none;
+    width:5em;
+    padding:0.3em;
+    margin-left: 10px;
+    font-weight: bold;
+    background-color: tomato;
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+}
+.form-boton:hover{
+    background-color: rgb(230, 45, 13);
+}

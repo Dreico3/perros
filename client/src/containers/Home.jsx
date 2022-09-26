@@ -6,12 +6,11 @@ function Home({ busqueda }) {
 
     return (
         <div className='home'>
-            <br />
             <h1>Bienvenidos a la Api de perritos</h1>
             {busqueda !== null ? busqueda.map(p => {
                 if (p.id.length > 4) {
                     return (
-                        <div>
+                        <div key={p.id}>
                             <h1>Mi api</h1>
                             <Card
                                 key={p.id}
@@ -27,7 +26,7 @@ function Home({ busqueda }) {
 
                 } else {
                     return (
-                        <div>
+                        <div key={p.id}>
                             <h1>Api externa</h1>
                             <Card
                                 key={p.id}

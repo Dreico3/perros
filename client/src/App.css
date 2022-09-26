@@ -1,3 +1,20 @@
-.App{
-    margin : 0px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    --color-uno:#00251a;
+    --color-dos:#004d40;
+    --color-claro:#39796b;
+    --color-text:#e0e0e0;
+    --color-textDos:#000000;
+}
+html {
+    box-sizing: border-box;
+    background-color: var(--color-dos);
+}
+*,
+*:before,
+*:after {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color:var(--color-text)
 }
